@@ -74,7 +74,7 @@ Because this app was created by following instructors, most of the kinks are alr
 
 Because this app isn't as optimized as it could be, heavy loads could cause slow responses from the API.
 
-To help with this, adding mongoose hooks to schemas can slightly reduce the amount of database requests going through but only marginally.
+To help with this, adding mongoose hooks to schemas can marginally reduce the amount of database requests going through.
 
 ### Notes 🖍
 
