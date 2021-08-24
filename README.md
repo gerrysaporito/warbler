@@ -60,29 +60,21 @@ This app has the following functionalities:
 
 ## Roadmap 🗺
 
-As of right now, the core functionality which qualifies this as an MVP has been implemented and tested in real time.
+Because this app was created during a Udemy course, the current features were all created alongside the course instructors & TAs. That doesn't mean there isn't any room for improvements though!
 
-Moving forward, integration tests will be implemented to ensure that all endpoints are functioning as expected. Also, advanced searches through common characteristics would also be incredibly useful to let users search by tags, key words, image sizes, types, and more to create a more seamless experience.
+In the future, I see profile pages for users to further personalize their accounts. Profile pages can contain profile pictures, email validation, likes and dislikes, birthdays, and more.
 
-Another feature that was considered was the possibility of buying and selling images by leveraging Non-Fungible Tokens (NFT) and blockchain technologies. Doing so would require an incredible upfront time and financial investment along with more knowledge and a community to support the development, which was way beyond the scope of the original project.
-
-Lastly although not a feature, legal paperwork (terms of use agreements & privacy policy) would be great to have to cover any liabilities on the individual user and and Fanimage & related entities. This is clearly beyond the scope of the project so it has not been pursued (nor do I think it ever will).
+Also I would start writing integration tests to ensure the platform is working as intended and speed up testing during development.
 
 ## Edge Cases ⚠️
 
-This app was created without much thought for longetivity and robustness because the goal was to demonstrate raw knowledge on APIs and server architecture. That being said, there are a lot of edge cases to cover (aside from what would be covered by integration tests as mentioned in the roadmap).
+Because this app was created by following instructors, most of the kinks are already fleshed out. There aren't too many edge cases but below are a few I was able to identify.
 
-### Variable Image Card Sizes 🚩
+### Load Testing 🚩
 
-For one, the UI is still clunky. Image cards contain variable amounts of whitespace and change depending on the largest card in the row. The inconsistency in sizes is really 'hard on the eyes' (ugly) and makes the platform feel buggier than it really is.
+Because this app isn't as optimized as it could be, heavy loads could cause slow responses from the API.
 
-To help with this, a masonry layout for the images (similar to [pinterest](https://pinterest.com)) would be a better fit for the nature of these posts.
-
-### Lacking Middleware 🚩
-
-Another shortcoming is the authentication middleware. Authentication is mostly handled in the client with the endpoints mostly being exposed. An example of this flaw can be seen when a user is only able to upload images if they are logged in but can still upload images by hitting the endpoint via [Postman](https://www.postman.com/) or something along those lines. The server will throw an error because the endpoint checks to see if a user exists before uploading but it should not get to this point to begin with.
-
-To fix this, custom middleware should be added to the endpoints to ensure proper authentication. The only real validation right now is ensuring a user is authenticated. Validating a user owns posts before updating or deleting is a big security flaw that was acknowledged but not implemented due to the scope of this project.
+To help with this, adding mongoose hooks to schemas can slightly reduce the amount of database requests going through but only marginally.
 
 ### Notes 🖍
 
